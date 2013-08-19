@@ -107,6 +107,4 @@ class tagcloud_portal extends portal_generic {
 	}
 
 }
-if(version_compare(PHP_VERSION, '5.3.0', '<')) registry::add_const('short_weather_portal', weather_portal::__shortcuts());
-
 ?>
