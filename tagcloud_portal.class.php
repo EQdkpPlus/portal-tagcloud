@@ -31,6 +31,7 @@ class tagcloud_portal extends portal_generic {
 		'name'			=> 'TagCloud',
 		'version'		=> '0.1.0',
 		'author'		=> 'GodMod',
+		'icon'			=> 'fa-tags',
 		'contact'		=> EQDKP_PROJECT_URL,
 		'description'	=> 'Shows a Tagcloud for your articles',
 	);
