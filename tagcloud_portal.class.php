@@ -21,13 +21,10 @@ if ( !defined('EQDKP_INC') ){
 }
 
 class tagcloud_portal extends portal_generic {
-	public static function __shortcuts() {
-		$shortcuts = array('user', 'pdh', 'pfh', 'core', 'db', 'tpl', 'config', 'puf'	=> 'urlfetcher', 'in', 'routing');
-		return array_merge(parent::$shortcuts, $shortcuts);
-	}
-
-	protected $path		= 'tagcloud';
-	protected $data		= array(
+	
+	public static $shortcuts = array('puf'	=> 'urlfetcher');
+	protected static $path		= 'tagcloud';
+	protected static $data		= array(
 		'name'			=> 'TagCloud',
 		'version'		=> '0.1.0',
 		'author'		=> 'GodMod',
@@ -35,13 +32,7 @@ class tagcloud_portal extends portal_generic {
 		'contact'		=> EQDKP_PROJECT_URL,
 		'description'	=> 'Shows a Tagcloud for your articles',
 	);
-	protected $positions = array('left', 'left', 'right', 'middle', 'bottom');
-	
-	protected $settings	= array(
-		
-	);
-	protected $install	= array(
-	);
+	protected static $positions = array('left', 'left', 'right', 'middle', 'bottom');
 
 	public function output() {
 		$this->tpl->js_file($this->server_path.'portal/tagcloud/js/jqcloud-1.0.4.min.js');
