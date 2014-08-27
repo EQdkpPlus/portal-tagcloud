@@ -33,6 +33,8 @@ class tagcloud_portal extends portal_generic {
 		'description'	=> 'Shows a Tagcloud for your articles',
 	);
 	protected static $positions = array('left', 'left', 'right', 'middle', 'bottom');
+	
+	protected static $apiLevel = 20;
 
 	public function output() {
 		$this->tpl->js_file($this->server_path.'portal/tagcloud/js/jqcloud-1.0.4.min.js');
