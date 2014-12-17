@@ -1,6 +1,6 @@
 <?php
 /*	Project:	EQdkp-Plus
- *	Package:	Tag cloud Portal Module
+ *	Package:	EQdkp-Plus Language File
  *	Link:		http://eqdkp-plus.eu
  *
  *	Copyright (C) 2006-2015 EQdkp-Plus Developer Team
@@ -19,17 +19,21 @@
  *	along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-if ( !defined('EQDKP_INC') ){
-	header('HTTP/1.0 404 Not Found');exit;
+ 
+if (!defined('EQDKP_INC')) {
+	die('You cannot access this file directly.');
 }
 
-$lang = array(
-	'weather'					=> 'Weather',
-	'weather_desc'				=> 'Shows the weather',
-	'weather_name'				=> 'Weather',
-	'pk_weather_no_data'		=> 'No Country or ZIP set in your user profile. Weather will only show information if you\'ve set up your Profile information.',
-	'pk_weather_tempformat'		=> 'Temperature Format (default: Celcius)',
-	'pk_weather_geolocation'	=> 'Use Geolocation-Option of the browser if no location data is setin the user profile?',
-	'pk_weather_fulllink'		=> 'Full forecast',
+//Language: English	
+//Created by EQdkp Plus Translation Tool on  2014-12-17 21:28
+//File: portal/tagcloud/language/english.php
+//Source-Language: german
+
+$lang = array( 
+	"tagcloud" => 'TagCloud',
+	"tagcloud_desc" => 'Shows a TagCloud for the used tags on articles.',
+	"tagcloud_name" => 'TagCloud',
+	
 );
+
 ?>
