@@ -24,16 +24,16 @@ if (!defined('EQDKP_INC')) {
 	die('You cannot access this file directly.');
 }
 
-//Language: English	
+//Language: English
 //Created by EQdkp Plus Translation Tool on  2014-12-17 23:17
 //File: portal/tagcloud/language/english.php
 //Source-Language: german
 
-$lang = array( 
+$lang = array(
 	"tagcloud" => 'TagCloud',
 	"tagcloud_desc" => 'Shows a TagCloud for the used tags on articles.',
 	"tagcloud_name" => 'TagCloud',
-	
+	'tagcloud_f_style'			=> 'Style',
 );
 
 ?>

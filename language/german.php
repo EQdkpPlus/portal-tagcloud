@@ -27,5 +27,6 @@ $lang = array(
 	'tagcloud'					=> 'TagCloud',
 	'tagcloud_desc'				=> 'Zeigt eine TagCloud für die bei Artikel verwendeten Schlagwörter an',
 	'tagcloud_name'				=> 'TagCloud',
+	'tagcloud_f_style'			=> 'Style',
 );
 ?>
