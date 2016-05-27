@@ -36,54 +36,46 @@ class tagcloud_portal extends portal_generic {
 		'description'	=> 'Shows a Tagcloud for your articles',
 	);
 	protected static $positions = array('left', 'left', 'right', 'middle', 'bottom');
-	
+	protected $settings	= array(
+		'style'	=> array(
+			'type'		=> 'dropdown',
+			'options'	=> ['Text', 'Bubbles'],
+			'default'	=> 0,
+		),
+	);
 	protected static $apiLevel = 20;
 
 	public function output() {
 		$this->tpl->js_file($this->server_path.'portal/tagcloud/js/jqcloud-1.0.4.min.js');
 		
 		$this->tpl->add_css("
-			div.jqcloud a {
-			  font-size: inherit;
-			  text-decoration: none;
-			}
-			
-			div.jqcloud span.w10 { font-size: 550%; }
-			div.jqcloud span.w9 { font-size: 500%; }
-			div.jqcloud span.w8 { font-size: 450%; }
-			div.jqcloud span.w7 { font-size: 400%; }
-			div.jqcloud span.w6 { font-size: 350%; }
-			div.jqcloud span.w5 { font-size: 300%; }
-			div.jqcloud span.w4 { font-size: 250%; }
-			div.jqcloud span.w3 { font-size: 200%; }
-			div.jqcloud span.w2 { font-size: 150%; }
-			div.jqcloud span.w1 { font-size: 100%; }
-			
-			/* colors */
-			
-			div.jqcloud { color: #09f; }
-			div.jqcloud a { color: inherit; }
-			div.jqcloud a:hover { color: #0df; }
-			div.jqcloud a:hover { color: #0cf; }
-			div.jqcloud span.w10 { color: #0cf; }
-			div.jqcloud span.w9 { color: #0cf; }
-			div.jqcloud span.w8 { color: #0cf; }
-			div.jqcloud span.w7 { color: #39d; }
-			div.jqcloud span.w6 { color: #90c5f0; }
-			div.jqcloud span.w5 { color: #90a0dd; }
-			div.jqcloud span.w4 { color: #90c5f0; }
-			div.jqcloud span.w3 { color: #a0ddff; }
-			div.jqcloud span.w2 { color: #99ccee; }
-			div.jqcloud span.w1 { color: #aab5f0; }
-			
-			/* layout */
-			
-			div.jqcloud {
-			  overflow: hidden;
-			  position: relative;
-			}
-			
+			div.jqcloud { color: #09f; overflow: hidden; position: relative; }
+			div.jqcloud a { color: #333; font-size: inherit; text-decoration: none; }
+			div.jqcloud a:hover { color: #fff; }
 			div.jqcloud span { padding: 0; }
+			div.jqcloud span.w10 { font-size: 550%; color: #0cf; }
+			div.jqcloud span.w9 { font-size: 500%; color: #0cf; }
+			div.jqcloud span.w8 { font-size: 450%; color: #0cf; }
+			div.jqcloud span.w7 { font-size: 400%; color: #39d; }
+			div.jqcloud span.w6 { font-size: 350%; color: #90c5f0; }
+			div.jqcloud span.w5 { font-size: 300%; color: #90a0dd; }
+			div.jqcloud span.w4 { font-size: 250%; color: #90c5f0; }
+			div.jqcloud span.w3 { font-size: 200%; color: #a0ddff; }
+			div.jqcloud span.w2 { font-size: 150%; color: #99ccee; }
+			div.jqcloud span.w1 { font-size: 100%; color: #aab5f0; }
+		");
+		if($this->config('style') == 1) $this->tpl->add_css("
+			div.jqcloud span { border: 1px solid rgba(152, 152, 152, 0.75); border-radius: 100px / 50px; padding: 5px; box-shadow: 2px 2px 5px #000; }
+			div.jqcloud span.w10 { background-color: rgba(0, 204, 255, 0.8); z-index: 10; }
+			div.jqcloud span.w9 { background-color: rgba(0, 204, 255, 0.8); z-index: 9; }
+			div.jqcloud span.w8 { background-color: rgba(0, 204, 255, 0.8); z-index: 8; }
+			div.jqcloud span.w7 { background-color: rgba(51, 153, 221, 0.8); z-index: 7; }
+			div.jqcloud span.w6 { background-color: rgba(59, 125, 179, 0.8); z-index: 6; }
+			div.jqcloud span.w5 { background-color: rgba(90, 110, 188, 0.8); z-index: 5; }
+			div.jqcloud span.w4 { background-color: rgba(71, 137, 191, 0.8); z-index: 4; }
+			div.jqcloud span.w3 { background-color: rgba(84, 194, 255, 0.8); z-index: 3; }
+			div.jqcloud span.w2 { background-color: rgba(75, 132, 170, 0.8); z-index: 2; }
+			div.jqcloud span.w1 { background-color: rgba(106, 122, 209, 0.8); z-index: 1; }
 		");
 		
 		$arrTags = $this->pdh->get('articles', 'tags_array');
@@ -97,7 +89,7 @@ class tagcloud_portal extends portal_generic {
 		var word_list = '.json_encode($arrOutTags).';
       $(function() {
         $("#portal-jqcloud").jQCloud(word_list);
-      });				
+      });
 				', 'docready');
 		
 		return '<div id="portal-jqcloud" style="height: 150px;"></div>';
