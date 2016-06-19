@@ -29,7 +29,7 @@ class tagcloud_portal extends portal_generic {
 	protected static $path		= 'tagcloud';
 	protected static $data		= array(
 		'name'			=> 'TagCloud',
-		'version'		=> '0.1.0',
+		'version'		=> '0.2.0',
 		'author'		=> 'GodMod',
 		'icon'			=> 'fa-tags',
 		'contact'		=> EQDKP_PROJECT_URL,
