@@ -34,6 +34,7 @@ class tagcloud_portal extends portal_generic {
 		'icon'			=> 'fa-tags',
 		'contact'		=> EQDKP_PROJECT_URL,
 		'description'	=> 'Shows a Tagcloud for your articles',
+		'lang_prefix'           => 'tagcloud_',
 	);
 	protected static $positions = array('left', 'left', 'right', 'middle', 'bottom');
 	protected $settings	= array(
